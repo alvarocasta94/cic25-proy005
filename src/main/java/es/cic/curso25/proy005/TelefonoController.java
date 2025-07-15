@@ -3,8 +3,12 @@ package es.cic.curso25.proy005;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,10 +16,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/telefono")
 public class TelefonoController {
 
-    // private int contador = 0;
+    private int contador = 0;
 
     // private Telefono telefono;
     // C R U D
+
+    @PostMapping
+    public long create(@RequestBody Telefono telefono) {
+        return ++contador;
+    }
+
 
 
     @GetMapping
@@ -56,4 +66,14 @@ public class TelefonoController {
         return telefono1;
     }
 
+    @PutMapping
+    public void update(@RequestBody Telefono telefono) {
+        // Falta de escribir todo
+        throw new UnsupportedOperationException();
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable long id) {
+        contador = contador;
+    }
 }
